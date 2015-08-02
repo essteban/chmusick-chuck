@@ -311,7 +311,7 @@ Chuck_Env * type_engine_init( Chuck_VM * vm )
     env->key_words["until"] = TRUE;
     env->key_words["if"] = TRUE;
     env->key_words["else"] = TRUE;
-    env->key_words["spork"] = TRUE;
+    env->key_words["run"] = TRUE;
     env->key_words["return"] = TRUE;
     env->key_words["class"] = TRUE;
     env->key_words["extends"] = TRUE;
@@ -2108,7 +2108,7 @@ t_CKTYPE type_engine_check_exp_unary( Chuck_Env * env, a_Exp_Unary unary )
             if( isa( t, &t_int ) ) return t;
         break;
         
-        case ae_op_spork:
+        case ae_op_run:
             // spork shred (by function call)
             if( unary->exp && unary->exp->s_type == ae_exp_func_call ) return &t_shred;
             // spork shred (by code segment)

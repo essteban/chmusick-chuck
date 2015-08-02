@@ -42,6 +42,7 @@
 
 static double g_pi = ONE_PI;
 static double g_twopi = TWO_PI;
+static double g_phi = PHI;
 static double g_e = ::exp( 1.0 );
 static t_CKFLOAT g_floatMax = DBL_MAX;
 static t_CKFLOAT g_floatMin = DBL_MIN;
@@ -234,6 +235,14 @@ DLL_QUERY libmath_query( Chuck_DL_Query * QUERY )
     // QUERY->add_arg( QUERY, "float", "min" );
     // QUERY->add_arg( QUERY, "float", "max" );
 
+    // add mtos
+    QUERY->add_sfun( QUERY, mtos_impl, "float", "mtos" ); //! midi note to string note
+    QUERY->add_arg( QUERY, "int", "value" );
+    
+    // add ftos
+    QUERY->add_sfun( QUERY, ftos_impl, "float", "mtof" ); //! frecuency to string note
+    QUERY->add_arg( QUERY, "float", "value" );
+    
     // add mtof
     //! see \example mand-o-matic.ck
     QUERY->add_sfun( QUERY, mtof_impl, "float", "mtof" ); //! midi note to frequency
@@ -319,6 +328,8 @@ DLL_QUERY libmath_query( Chuck_DL_Query * QUERY )
     // twopi
     // QUERY->add_svar( QUERY, "float", "two_pi", TRUE, &g_twopi );
 
+    // phi
+    QUERY->add_svar( QUERY, "float", "PHI", TRUE, &g_phi);
     // e
     QUERY->add_svar( QUERY, "float", "E", TRUE, &g_e );
     // e

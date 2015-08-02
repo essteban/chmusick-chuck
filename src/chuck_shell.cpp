@@ -44,6 +44,8 @@
  #include <dirent.h>
 #endif
 
+string st;
+
 using namespace std;
 
 // global shell pointer (lives in chuck_main)

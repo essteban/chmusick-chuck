@@ -52,7 +52,7 @@ typedef enum {
     ae_op_s_or_chuck, ae_op_s_xor_chuck, ae_op_shift_right_chuck,
     ae_op_shift_left_chuck, ae_op_percent_chuck, ae_op_s_chuck,
     ae_op_plusplus, ae_op_minusminus, ae_op_tilda, ae_op_exclamation,
-    ae_op_at_chuck, ae_op_unchuck, ae_op_upchuck, ae_op_spork, 
+    ae_op_at_chuck, ae_op_unchuck, ae_op_upchuck, ae_op_run,
     ae_op_typeof, ae_op_sizeof, ae_op_new, ae_op_arrow_left, ae_op_arrow_right
 } ae_Operator;
 

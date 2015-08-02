@@ -247,7 +247,7 @@ private                 { adjust(); return PRIVATE; }
 static                  { adjust(); return STATIC; }
 pure                    { adjust(); return ABSTRACT; }
 const                   { adjust(); return CONST; }
-spork                   { adjust(); return SPORK; }
+run                     { adjust(); return SPORK; }
 typeof                  { adjust(); return TYPEOF; }
 
 "=>"                    { adjust(); return CHUCK; }

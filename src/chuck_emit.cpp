@@ -70,9 +70,9 @@ t_CKBOOL emit_engine_emit_exp_postfix( Chuck_Emitter * emit, a_Exp_Postfix postf
 t_CKBOOL emit_engine_emit_exp_dur( Chuck_Emitter * emit, a_Exp_Dur dur );
 t_CKBOOL emit_engine_emit_exp_array( Chuck_Emitter * emit, a_Exp_Array array );
 t_CKBOOL emit_engine_emit_exp_func_call( Chuck_Emitter * emit, Chuck_Func * func,
-                                         Chuck_Type * type, int linepos, t_CKBOOL spork = FALSE );
+                                         Chuck_Type * type, int linepos, t_CKBOOL run = FALSE );
 t_CKBOOL emit_engine_emit_exp_func_call( Chuck_Emitter * emit, a_Exp_Func_Call func_call,
-                                         t_CKBOOL spork = FALSE );
+                                         t_CKBOOL run = FALSE );
 t_CKBOOL emit_engine_emit_func_args( Chuck_Emitter * emit, a_Exp_Func_Call func_call );
 t_CKBOOL emit_engine_emit_exp_dot_member( Chuck_Emitter * emit, a_Exp_Dot_Member member );
 t_CKBOOL emit_engine_emit_exp_if( Chuck_Emitter * emit, a_Exp_If exp_if );
@@ -87,12 +87,12 @@ t_CKBOOL emit_engine_emit_class_def( Chuck_Emitter * emit, a_Class_Def class_def
 t_CKBOOL emit_engine_pre_constructor( Chuck_Emitter * emit, Chuck_Type * type );
 t_CKBOOL emit_engine_instantiate_object( Chuck_Emitter * emit, Chuck_Type * type,
                                          a_Array_Sub array, t_CKBOOL is_ref );
-t_CKBOOL emit_engine_emit_spork( Chuck_Emitter * emit, a_Exp_Func_Call exp );
+t_CKBOOL emit_engine_emit_run( Chuck_Emitter * emit, a_Exp_Func_Call exp );
 t_CKBOOL emit_engine_emit_cast( Chuck_Emitter * emit, Chuck_Type * to, Chuck_Type * from );
 t_CKBOOL emit_engine_emit_symbol( Chuck_Emitter * emit, S_Symbol symbol, 
                                   Chuck_Value * v, t_CKBOOL emit_var, int linepos );
 // disabled until further notice (added 1.3.0.0)
-// t_CKBOOL emit_engine_emit_spork( Chuck_Emitter * emit, a_Stmt stmt );
+// t_CKBOOL emit_engine_emit_run( Chuck_Emitter * emit, a_Stmt stmt );
 
 
 
@@ -2519,7 +2519,7 @@ t_CKBOOL emit_engine_emit_op_at_chuck( Chuck_Emitter * emit, a_Exp lhs, a_Exp rh
 //-----------------------------------------------------------------------------
 t_CKBOOL emit_engine_emit_exp_unary( Chuck_Emitter * emit, a_Exp_Unary unary )
 {
-    if( unary->op != ae_op_spork && !emit_engine_emit_exp( emit, unary->exp ) )
+    if( unary->op != ae_op_run && !emit_engine_emit_exp( emit, unary->exp ) )
         return FALSE;
 
     // get type
@@ -2612,17 +2612,17 @@ t_CKBOOL emit_engine_emit_exp_unary( Chuck_Emitter * emit, a_Exp_Unary unary )
         }
         break;
 
-    case ae_op_spork:
-        // spork ~ func()
+    case ae_op_run:
+        // run ~ func()
         if( unary->exp && unary->exp->s_type == ae_exp_func_call )
         {
-            if( !emit_engine_emit_spork( emit, &unary->exp->func_call ) )
+            if( !emit_engine_emit_run( emit, &unary->exp->func_call ) )
                 return FALSE;
         }
-        // spork ~ { ... }
+        // run ~ { ... }
         // else if( unary->code )
         // {
-        //     if( !emit_engine_emit_spork( emit, unary->code ) )
+        //     if( !emit_engine_emit_run( emit, unary->code ) )
         //         return FALSE;
         // }
         else
@@ -3144,7 +3144,7 @@ t_CKBOOL emit_engine_emit_exp_func_call( Chuck_Emitter * emit,
                                          Chuck_Func * func,
                                          Chuck_Type * type,
                                          int linepos,
-                                         t_CKBOOL spork )
+                                         t_CKBOOL run )
 {
     // is a member?
     t_CKBOOL is_member = func->is_member;
@@ -3223,13 +3223,13 @@ t_CKBOOL emit_engine_emit_func_args( Chuck_Emitter * emit,
 //-----------------------------------------------------------------------------
 t_CKBOOL emit_engine_emit_exp_func_call( Chuck_Emitter * emit,
                                          a_Exp_Func_Call func_call,
-                                         t_CKBOOL spork )
+                                         t_CKBOOL run )
 {
     // note: spork situations are now taken care in exp_spork...
     // please look at that one before modifying this one!
 
     // make sure there are args, and not sporking
-    if( func_call->args && !spork )
+    if( func_call->args && !run )
     {
         if( !emit_engine_emit_func_args( emit, func_call ) )
             return FALSE;
@@ -3245,7 +3245,7 @@ t_CKBOOL emit_engine_emit_exp_func_call( Chuck_Emitter * emit,
     
     // the rest
     return emit_engine_emit_exp_func_call( emit, func_call->ck_func, func_call->ret_type,
-                                           func_call->linepos, spork );
+                                           func_call->linepos, run );
 }
 
 
@@ -4178,7 +4178,7 @@ t_CKBOOL emit_engine_emit_class_def( Chuck_Emitter * emit, a_Class_Def class_def
 // name: emit_engine_emit_spork()
 // desc: ...
 //-----------------------------------------------------------------------------
-t_CKBOOL emit_engine_emit_spork( Chuck_Emitter * emit, a_Exp_Func_Call exp )
+t_CKBOOL emit_engine_emit_run( Chuck_Emitter * emit, a_Exp_Func_Call exp )
 {
     // spork
     Chuck_Instr_Mem_Push_Imm * op = NULL;
@@ -4207,7 +4207,7 @@ t_CKBOOL emit_engine_emit_spork( Chuck_Emitter * emit, a_Exp_Func_Call exp )
     // handle need this
     emit->code->need_this = exp->ck_func->is_member;
     // name it
-    emit->code->name = "spork~exp";
+    emit->code->name = "run~exp";
     // keep track of full path (added 1.3.0.0)
     emit->code->filename = emit->context->full_path;
     // push op

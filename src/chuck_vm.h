@@ -394,7 +394,7 @@ public: // init
     t_CKBOOL shutdown();
 
 public: // shreds
-    Chuck_VM_Shred * spork( Chuck_VM_Code * code, Chuck_VM_Shred * parent );
+    Chuck_VM_Shred * run( Chuck_VM_Code * code, Chuck_VM_Shred * parent );
     Chuck_VM_Shred * fork( Chuck_VM_Code * code );
     Chuck_VM_Shreduler * shreduler() const;
     t_CKUINT next_id( );
@@ -461,7 +461,7 @@ public:
     t_CKBOOL m_block;
 
 protected:
-    Chuck_VM_Shred * spork( Chuck_VM_Shred * shred );
+    Chuck_VM_Shred * run( Chuck_VM_Shred * shred );
     t_CKBOOL free( Chuck_VM_Shred * shred, t_CKBOOL cascade, 
                    t_CKBOOL dec = TRUE );
     void dump( Chuck_VM_Shred * shred );

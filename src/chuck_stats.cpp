@@ -78,7 +78,7 @@ void Chuck_Stats::add_shred( Chuck_VM_Shred * shred )
     stat->parent = shred->parent ? shred->parent->xid : 0;
     stat->state = 0; // inactive
     stat->shred_ref = shred;
-    stat->spork_time = shred->wake_time;
+    stat->run_time = shred->wake_time;
     stat->wake_time = shred->wake_time;
     stat->name = shred->name;
     stat->owner = "noone";

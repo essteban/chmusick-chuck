@@ -109,6 +109,7 @@ typedef struct { SAMPLE re ; SAMPLE im ; } t_CKCOMPLEX_SAMPLE;
 #define ONE_PI (3.14159265358979323846)
 #define TWO_PI (2.0 * ONE_PI)
 #define SQRT2  (1.41421356237309504880)
+#define PHI    (1.618) //Just 'cause is beatiful
 
 #ifndef SAFE_DELETE
 #define SAFE_DELETE(x)              do { if(x){ delete x; x = NULL; } } while(0)

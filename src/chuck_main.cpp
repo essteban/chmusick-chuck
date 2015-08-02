@@ -837,7 +837,7 @@ static void usage()
                 // code->name += string(argv[i]);
 
                 // spork it
-                shred = vm->spork( code, NULL );
+                shred = vm->run( code, NULL );
             }
             
             // pop indent
@@ -909,7 +909,7 @@ static void usage()
         while( count-- )
         {
             // spork
-            shred = vm->spork( code, NULL );
+            shred = vm->run( code, NULL );
             // add args
             shred->args = args;
         }

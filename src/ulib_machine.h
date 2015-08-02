@@ -51,7 +51,7 @@ t_CKUINT machine_intsize();
 // exports
 CK_DLL_SFUN( machine_crash_impl );
 CK_DLL_SFUN( machine_add_impl );
-CK_DLL_SFUN( machine_spork_impl );
+CK_DLL_SFUN( machine_run_impl );
 CK_DLL_SFUN( machine_remove_impl );
 CK_DLL_SFUN( machine_replace_impl );
 CK_DLL_SFUN( machine_status_impl );

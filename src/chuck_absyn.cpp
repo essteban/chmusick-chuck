@@ -918,7 +918,7 @@ static const char * op_str[] = {
   "!",
   "@=>",
   "=<",
-  "spork ~",
+  "run ~",
   "typeof",
   "sizeof",
   "new"

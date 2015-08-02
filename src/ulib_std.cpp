@@ -226,7 +226,15 @@ DLL_QUERY libstd_query( Chuck_DL_Query * QUERY )
     QUERY->add_sfun( QUERY, setenv_impl, "int", "setenv" ); //! set environment variable
     QUERY->add_arg( QUERY, "string", "key" );
     QUERY->add_arg( QUERY, "string", "value" );
-
+    
+    // add mtos
+    QUERY->add_sfun( QUERY, mtos_impl, "int", "mtos" ); //! midi note to string note
+    QUERY->add_arg( QUERY, "int", "value" );
+    
+    // add ftos
+    QUERY->add_sfun( QUERY, ftos_impl, "float", "ftos" ); // frecuency to string note
+    QUERY->add_arg( QUERY, "float", "value" );
+    
     // add mtof
     //! see \example mand-o-matic.ck
     QUERY->add_sfun( QUERY, mtof_impl, "float", "mtof" ); //! midi note to frequency
@@ -726,6 +734,19 @@ CK_DLL_SFUN( setenv_impl )
     RETURN->v_int = setenv( v1, v2, 1 );
 }
 
+// mtos
+CK_DLL_SFUN( mtos_impl )
+{
+    t_CKFLOAT v = GET_CK_FLOAT(ARGS);
+    RETURN->v_float = mtos(v);
+}
+
+// ftos
+CK_DLL_SFUN( ftos_impl )
+{
+    t_CKFLOAT v = GET_CK_FLOAT(ARGS);
+    RETURN->v_float = ftos(v);
+}
 
 // mtof
 CK_DLL_SFUN( mtof_impl )

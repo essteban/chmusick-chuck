@@ -1068,8 +1068,8 @@ t_CKUINT Chuck_VM::process_msg( Chuck_Msg * msg )
     {
         t_CKUINT xid = 0;
         Chuck_VM_Shred * shred = NULL;
-        if( msg->shred ) shred = this->spork( msg->shred );
-        else shred = this->spork( msg->code, NULL );
+        if( msg->shred ) shred = this->run( msg->shred );
+        else shred = this->run( msg->code, NULL );
         xid = shred->xid;
         if( msg->args ) shred->args = *(msg->args);
 
@@ -1203,7 +1203,7 @@ Chuck_VM_Shred * Chuck_VM::fork( Chuck_VM_Code * code )
 // name: spork()
 // desc: ...
 //-----------------------------------------------------------------------------
-Chuck_VM_Shred * Chuck_VM::spork( Chuck_VM_Code * code, Chuck_VM_Shred * parent )
+Chuck_VM_Shred * Chuck_VM::run( Chuck_VM_Code * code, Chuck_VM_Shred * parent )
 {
     // allocate a new shred
     Chuck_VM_Shred * shred = new Chuck_VM_Shred;
@@ -1217,7 +1217,7 @@ Chuck_VM_Shred * Chuck_VM::spork( Chuck_VM_Code * code, Chuck_VM_Shred * parent 
     if( parent ) shred->base_ref = shred->parent->base_ref;
     else shred->base_ref = shred->mem;
     // spork it
-    this->spork( shred );
+    this->run( shred );
 
     // track new shred
     CK_TRACK( Chuck_Stats::instance()->add_shred( shred ) );
@@ -1232,7 +1232,7 @@ Chuck_VM_Shred * Chuck_VM::spork( Chuck_VM_Code * code, Chuck_VM_Shred * parent 
 // name: spork()
 // desc: ...
 //-----------------------------------------------------------------------------
-Chuck_VM_Shred * Chuck_VM::spork( Chuck_VM_Shred * shred )
+Chuck_VM_Shred * Chuck_VM::run( Chuck_VM_Shred * shred )
 {
     // set the current time
     shred->start = m_shreduler->now_system;
@@ -2513,7 +2513,7 @@ void Chuck_VM_Shreduler::status( )
     {
         shred = m_status.list[i];
         fprintf( stdout, 
-            "    [shred id]: %ld  [source]: %s  [spork time]: %.2fs ago%s\n",
+            "    [shred id]: %ld  [source]: %s  [run time]: %.2fs ago%s\n",
             shred->xid, mini( shred->name.c_str() ),
             (m_status.now_system - shred->start) / m_status.srate,
             shred->has_event ? " (blocked)" : "" );

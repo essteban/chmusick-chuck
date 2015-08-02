@@ -34,10 +34,8 @@
 #include "util_math.h"
 #include <math.h>
 
-
 // windows / visual c++
 #ifdef __PLATFORM_WIN32__
-
 
 //-----------------------------------------------------------------------------
 // name: round()
@@ -73,7 +71,70 @@ double remainder( long a, long b )
 
 #endif
 
+//-----------------------------------------------------------------------------
+// name: mtos()
+// desc: midi to string note
+// author: Esteban Betancur (essteb@gmail.com)
+//-----------------------------------------------------------------------------
 
+char mtos( int f )
+{
+    int modul;
+    char str;
+    for(int i = 12; i > 0; i--)
+    {
+        if(f % i == 0)
+            modul = i;
+    }
+    switch (modul) {
+        case 12:
+            str = "C";
+            break;
+        case 11:
+            str = "B";
+            break;
+        case 10:
+            str = "Bb/A#";
+            break;
+        case 9:
+            str = "A";
+            break;
+        case 8:
+            str = "Ab/G#";
+            break;
+        case 7:
+            str = "G";
+            break;
+        case 6:
+            str = "Gb/F#";
+            break;
+        case 5:
+            str = "F";
+            break;
+        case 4:
+            str = "E";
+            break;
+        case 3:
+            str = "Eb/D#";
+            break;
+        case 2:
+            str = "D";
+            break;
+        case 1:
+            str = "Db/C#";
+            break;
+    }
+    return str;
+}
+//-----------------------------------------------------------------------------
+// name: ftos()
+// desc: frecuency to string note
+//-----------------------------------------------------------------------------
+char ftos( double f )
+{
+    int num = ftom(f);
+    return mtos(num);
+}
 
 // the following 6 functions are
 // lifted from  PD source
@@ -81,7 +142,6 @@ double remainder( long a, long b )
 // http://puredata.info/downloads
 #define LOGTWO 0.69314718055994528623
 #define LOGTEN 2.302585092994
-
 
 //-----------------------------------------------------------------------------
 // name: mtof()

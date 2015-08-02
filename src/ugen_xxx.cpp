@@ -120,6 +120,7 @@ DLL_QUERY xxx_query( Chuck_DL_Query * QUERY )
     type_engine_register_deprecate( env, "zerox", "ZeroX" );
     type_engine_register_deprecate( env, "delayp", "DelayP" );
     type_engine_register_deprecate( env, "sndbuf", "SndBuf" );
+    type_engine_register_deprecate( env, "drum", "Drum" );
 
     //! \section audio output
     

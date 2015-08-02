@@ -55,6 +55,8 @@ CK_DLL_SFUN( ftoi_impl );
 CK_DLL_SFUN( getenv_impl );
 CK_DLL_SFUN( setenv_impl );
 
+CK_DLL_SFUN( mtos_impl );
+CK_DLL_SFUN( ftos_impl );
 CK_DLL_SFUN( mtof_impl );
 CK_DLL_SFUN( ftom_impl );
 CK_DLL_SFUN( powtodb_impl );

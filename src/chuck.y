@@ -549,7 +549,7 @@ unary_operator
         | TILDA                             { $$ = ae_op_tilda; }
         | EXCLAMATION                       { $$ = ae_op_exclamation; }
         | TIMES                             { $$ = ae_op_times; }
-        | SPORK TILDA                       { $$ = ae_op_spork; }
+        | SPORK TILDA                       { $$ = ae_op_run; }
         // | S_AND                             { $$ = ae_op_s_and; }
         ;
 

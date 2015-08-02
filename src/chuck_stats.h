@@ -95,7 +95,7 @@ public:
     // average cycles
     t_CKFLOAT average_cycles;
     // spork time
-    t_CKTIME spork_time;
+    t_CKTIME run_time;
     // active time
     t_CKTIME active_time;
     // wake time
@@ -141,7 +141,7 @@ public:
     Shred_Stat() { this->clear(); num_diffs = 8; data = NULL; time = NULL; }
     void clear()
     { xid = 0; parent = 0; state = 0; cycles = 0; activations = 0;
-      average_ctrl = 0.0; spork_time = 0.0; active_time = 0.0; wake_time = 0.0;
+      average_ctrl = 0.0; run_time = 0.0; active_time = 0.0; wake_time = 0.0;
       free_time = 0.0; name = "no name"; owner = "none"; source = "nowhere";
       while( diffs.size() ) diffs.pop(); diff_total = 0.0;
       while( act_cycles.size() ) act_cycles.pop(); act_cycles_total = 0;
