@@ -80,7 +80,7 @@ double remainder( long a, long b )
 char mtos( int f )
 {
     int modul;
-    char str;
+
     for(int i = 12; i > 0; i--)
     {
         if(f % i == 0)
@@ -88,43 +88,42 @@ char mtos( int f )
     }
     switch (modul) {
         case 12:
-            str = "C";
+            return "C";
             break;
         case 11:
-            str = "B";
+            return "B";
             break;
         case 10:
-            str = "Bb/A#";
+            return "Bb/A#";
             break;
         case 9:
-            str = "A";
+            return "A";
             break;
         case 8:
-            str = "Ab/G#";
+            return "Ab/G#";
             break;
         case 7:
-            str = "G";
+            return "G";
             break;
         case 6:
-            str = "Gb/F#";
+            return "Gb/F#";
             break;
         case 5:
-            str = "F";
+            return "F";
             break;
         case 4:
-            str = "E";
+            return "E";
             break;
         case 3:
-            str = "Eb/D#";
+            return "Eb/D#";
             break;
         case 2:
-            str = "D";
+            return "D";
             break;
         case 1:
-            str = "Db/C#";
+            return "Db/C#";
             break;
     }
-    return str;
 }
 //-----------------------------------------------------------------------------
 // name: ftos()
