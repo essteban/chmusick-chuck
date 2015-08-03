@@ -77,62 +77,17 @@ double remainder( long a, long b )
 // author: Esteban Betancur (essteb@gmail.com)
 //-----------------------------------------------------------------------------
 
-char mtos( int f )
+char mtos()
 {
-    int modul;
-
-    for(int i = 12; i > 0; i--)
-    {
-        if(f % i == 0)
-            modul = i;
-    }
-    switch (modul) {
-        case 12:
-            return "C";
-            break;
-        case 11:
-            return "B";
-            break;
-        case 10:
-            return "Bb/A#";
-            break;
-        case 9:
-            return "A";
-            break;
-        case 8:
-            return "Ab/G#";
-            break;
-        case 7:
-            return "G";
-            break;
-        case 6:
-            return "Gb/F#";
-            break;
-        case 5:
-            return "F";
-            break;
-        case 4:
-            return "E";
-            break;
-        case 3:
-            return "Eb/D#";
-            break;
-        case 2:
-            return "D";
-            break;
-        case 1:
-            return "Db/C#";
-            break;
-    }
+    return 0.0;
 }
 //-----------------------------------------------------------------------------
 // name: ftos()
 // desc: frecuency to string note
 //-----------------------------------------------------------------------------
-char ftos( double f )
+char ftos()
 {
-    int num = ftom(f);
-    return mtos(num);
+    return mtos(3);
 }
 
 // the following 6 functions are
