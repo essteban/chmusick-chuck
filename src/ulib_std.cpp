@@ -738,14 +738,14 @@ CK_DLL_SFUN( setenv_impl )
 CK_DLL_SFUN( mtos_impl )
 {
     t_CKFLOAT v = GET_CK_FLOAT(ARGS);
-    RETURN->v_float = mtos(v);
+    RETURN->v_float = mtos();
 }
 
 // ftos
 CK_DLL_SFUN( ftos_impl )
 {
     t_CKFLOAT v = GET_CK_FLOAT(ARGS);
-    RETURN->v_float = ftos(v);
+    RETURN->v_float = ftos();
 }
 
 // mtof

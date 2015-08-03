@@ -48,9 +48,9 @@ extern "C" {
 #endif
 
 // mtos
-char mtos( int f );
+char mtos();
 // ftos
-char ftos( double f );
+char ftos();
 // mtof
 double mtof( double f );
 // ftom
