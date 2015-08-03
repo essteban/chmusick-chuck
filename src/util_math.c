@@ -87,7 +87,7 @@ char mtos()
 //-----------------------------------------------------------------------------
 char ftos()
 {
-    return mtos(3);
+    return 0.0;
 }
 
 // the following 6 functions are
