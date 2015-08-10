@@ -5631,6 +5631,7 @@ bool RtApiAlsa :: probeDeviceOpen( unsigned int device, StreamMode mode, unsigne
                                    RtAudio::StreamOptions *options )
 
 {
+
 #if defined(__RTAUDIO_DEBUG__)
   snd_output_t *out;
   snd_output_stdio_attach(&out, stderr, 0);

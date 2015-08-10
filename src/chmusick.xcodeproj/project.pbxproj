@@ -89,6 +89,7 @@
 			isEditable = 1;
 			outputFiles = (
 			);
+			script = "";
 		};
 /* End PBXBuildRule section */
 
@@ -103,7 +104,7 @@
 		0962DA2815D3A626002DEFF3 /* chuck_io.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chuck_io.h; sourceTree = "<group>"; };
 		0966E6C815CFBB0F0099CBD8 /* util_serial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = util_serial.cpp; sourceTree = "<group>"; };
 		0966E6CB15CFBB240099CBD8 /* util_serial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = util_serial.h; sourceTree = "<group>"; };
-		09805FE70AA10D0C00915136 /* chuck */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = chuck; sourceTree = BUILT_PRODUCTS_DIR; };
+		09805FE70AA10D0C00915136 /* chmusick */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = chmusick; sourceTree = BUILT_PRODUCTS_DIR; };
 		0980604F0AA159A100915136 /* array_argument.ck */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = array_argument.ck; path = examples/array/array_argument.ck; sourceTree = SOURCE_ROOT; };
 		098060500AA159A100915136 /* array_assign.ck */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = array_assign.ck; path = examples/array/array_assign.ck; sourceTree = SOURCE_ROOT; };
 		098060510AA159A100915136 /* array_mdim.ck */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = array_mdim.ck; path = examples/array/array_mdim.ck; sourceTree = SOURCE_ROOT; };
@@ -979,7 +980,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				09805FE70AA10D0C00915136 /* chuck */,
+				09805FE70AA10D0C00915136 /* chmusick */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1009,9 +1010,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		09805FE60AA10D0C00915136 /* chuck */ = {
+		09805FE60AA10D0C00915136 /* chmusick */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 098060180AA10D6C00915136 /* Build configuration list for PBXNativeTarget "chuck" */;
+			buildConfigurationList = 098060180AA10D6C00915136 /* Build configuration list for PBXNativeTarget "chmusick" */;
 			buildPhases = (
 				09805FE40AA10D0C00915136 /* Sources */,
 				09805FE50AA10D0C00915136 /* Frameworks */,
@@ -1021,9 +1022,9 @@
 			);
 			dependencies = (
 			);
-			name = chuck;
+			name = chmusick;
 			productName = chuck;
-			productReference = 09805FE70AA10D0C00915136 /* chuck */;
+			productReference = 09805FE70AA10D0C00915136 /* chmusick */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -1032,9 +1033,9 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "chuck" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "chmusick" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -1048,7 +1049,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				09805FE60AA10D0C00915136 /* chuck */,
+				09805FE60AA10D0C00915136 /* chmusick */,
 			);
 		};
 /* End PBXProject section */
@@ -1153,7 +1154,7 @@
 				INSTALL_PATH = "$(HOME)/bin";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = chuck;
+				PRODUCT_NAME = chmusick;
 			};
 			name = Debug;
 		};
@@ -1181,14 +1182,13 @@
 				INSTALL_PATH = "$(HOME)/bin";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = chuck;
+				PRODUCT_NAME = chmusick;
 			};
 			name = Release;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_ENABLE_PASCAL_STRINGS = NO;
 				GCC_MODEL_TUNING = "";
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1200,6 +1200,7 @@
 					/usr/local/include,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				YACC_GENERATED_FILE_STEM = InputFileStem;
 			};
@@ -1208,7 +1209,6 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_ENABLE_PASCAL_STRINGS = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_OPTIMIZATION_LEVEL = 3;
@@ -1228,7 +1228,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		098060180AA10D6C00915136 /* Build configuration list for PBXNativeTarget "chuck" */ = {
+		098060180AA10D6C00915136 /* Build configuration list for PBXNativeTarget "chmusick" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				098060190AA10D6C00915136 /* Debug */,
@@ -1237,7 +1237,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "chuck" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "chmusick" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

@@ -77,17 +77,57 @@ double remainder( long a, long b )
 // author: Esteban Betancur (essteb@gmail.com)
 //-----------------------------------------------------------------------------
 
-char mtos()
+char mtos( int i )
 {
-    return 0.0;
+    char c;
+    
+    if(i % 12 == 0)
+    {
+        c = 'c';
+        return c;
+    }
+    if(i % 11 == 0)
+    {
+        c = 'b';
+        return c;
+    }
+    if(i % 9 == 0)
+    {
+        c = 'a';
+        return c;
+    }
+    if(i % 7 == 0)
+    {
+        c = 'g';
+        return c;
+    }
+    if(i % 5 == 0)
+    {
+        c = 'f';
+        return c;
+    }
+    if(i % 4 == 0)
+    {
+        c = 'e';
+        return c;
+    }
+    if(i % 2 == 0)
+    {
+        c = 'd';
+        return c;
+    }
+    else
+        return 0.0;
 }
 //-----------------------------------------------------------------------------
 // name: ftos()
 // desc: frecuency to string note
 //-----------------------------------------------------------------------------
-char ftos()
+char ftos( double f )
 {
-    return 0.0;
+    f = ftom(f);
+    f = mtos(f);
+    return f;
 }
 
 // the following 6 functions are
