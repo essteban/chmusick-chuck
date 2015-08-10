@@ -2,14 +2,14 @@ DESTDIR?=/usr/bin
 
 # default target: print usage message and quit
 current: 
-	@echo "[chuck build]: please use one of the following configurations:"
+	@echo "[chmusick build]: please use one of the following configurations:"
 	@echo "   make linux-alsa, make linux-jack, make linux-pulse,"
 	@echo "   make osx, make osx-ub, make cygwin, or make win32"
 
 install:
 	mkdir -p $(DESTDIR)
-	cp $(wildcard chuck chuck.exe) $(DESTDIR)/
-	chmod 755 $(DESTDIR)/$(wildcard chuck chuck.exe)
+	cp $(wildcard chmusick chmusick.exe) $(DESTDIR)/
+	chmod 755 $(DESTDIR)/$(wildcard chmusick chmusick.exe)
 
 ifneq ($(CK_TARGET),)
 .DEFAULT_GOAL:=$(CK_TARGET)
@@ -19,7 +19,7 @@ endif
 endif
 
 .PHONY: osx linux-pulse linux-jack linux-alsa cygwin osx-rl
-osx linux-pulse linux-jack linux-alsa cygwin osx-rl: chuck
+osx linux-pulse linux-jack linux-alsa cygwin osx-rl: chmusick
 
 win32:
 	make -f makefile.win32
@@ -120,13 +120,13 @@ BIN_NOTES=README.txt
 DOC_NOTES=GOTO
 DIST_DIR=chuck-$(CK_VERSION)
 DIST_DIR_EXE=chuck-$(CK_VERSION)-exe
-CK_SVN=https://chuck-dev.stanford.edu/svn/chuck/
+CK_SVN=https:https://github.com/essteban/chmusick-chuck
 
 # pull in dependency info for *existing* .o files
 -include $(OBJS:.o=.d)
 
-chuck: $(OBJS)
-	$(LD) -o chuck $(OBJS) $(LDFLAGS) $(ARCHOPTS)
+chmusick: $(OBJS)
+	$(LD) -o chmusick $(OBJS) $(LDFLAGS) $(ARCHOPTS)
 
 chuck.tab.c chuck.tab.h: chuck.y
 	$(YACC) -dv -b chuck chuck.y
@@ -154,7 +154,7 @@ $(CXXOBJS): %.o: %.cpp
 	@$(CXX) -MM -MQ "$@" $(CFLAGSDEPEND) $< > $*.d
 
 clean: 
-	@rm -rf $(wildcard chuck chuck.exe) *.o *.d $(OBJS) \
+	@rm -rf $(wildcard chmusick chmusick.exe) *.o *.d $(OBJS) \
          $(patsubst %.o,%.d,$(OBJS)) *~ chuck.output chuck.tab.h chuck.tab.c \
          chuck.yy.c $(DIST_DIR){,.tgz,.zip} Release Debug
 	
@@ -170,7 +170,7 @@ bin-dist-osx: osx
 # create directories
 	mkdir $(DIST_DIR_EXE) $(DIST_DIR_EXE)/bin $(DIST_DIR_EXE)/doc
 # copy binary + notes
-	cp chuck $(addprefix ../notes/bin/,$(BIN_NOTES)) $(DIST_DIR_EXE)/bin
+	cp chmusick $(addprefix ../notes/bin/,$(BIN_NOTES)) $(DIST_DIR_EXE)/bin
 # copy manual + notes
 	cp ../doc/manual/ChucK_manual.pdf $(addprefix ../notes/doc/,$(DOC_NOTES)) $(DIST_DIR_EXE)/doc
 # copy examples
@@ -191,7 +191,7 @@ bin-dist-win32:
 # create directories
 	mkdir $(DIST_DIR_EXE) $(DIST_DIR_EXE)/bin $(DIST_DIR_EXE)/doc
 # copy binary + notes
-	cp Release/chuck.exe $(addprefix ../notes/bin/,$(BIN_NOTES)) $(DIST_DIR_EXE)/bin
+	cp Release/chmusick.exe $(addprefix ../notes/bin/,$(BIN_NOTES)) $(DIST_DIR_EXE)/bin
 # copy manual + notes
 	cp ../doc/manual/ChucK_manual.pdf $(addprefix ../notes/doc/,$(DOC_NOTES)) $(DIST_DIR_EXE)/doc
 # copy examples
