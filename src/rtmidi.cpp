@@ -802,7 +802,7 @@ void RtMidiOut :: sendMessage( std::vector<unsigned char> *message )
 #include <sys/time.h>
 
 // ALSA header file.
-#include <alsa/chucklib.h>
+#include <alsa/asoundlib.h>
 
 // A structure to hold variables related to the ALSA API
 // implementation.
