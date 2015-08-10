@@ -1,4 +1,4 @@
-# ChucK [![Build Status](https://travis-ci.org/ccrma/chuck.svg?branch=master)](https://travis-ci.org/ccrma/chuck)
+# ChucK [![Build Status](https://travis-ci.org/ccrma/chuck.svg?branch=master)](https://travis-ci.org/ccrma/chuck) CHmUsiCK
 ## Strongly-timed, Concurrent, and On-the-fly Music Programming Language  
 
 Welcome to CHmUsicK! 
