@@ -1246,12 +1246,24 @@ t_CKBOOL init_class_array( Chuck_Env * env, Chuck_Type * type )
     func = make_new_mfun( "void", "clear", array_clear );
     func->doc = "Clear the contents of the array.";
     if( !type_engine_import_mfun( env, func ) ) goto error;
-
+    
+    /*
+    // add trunc()
+     func = make_new_mfun( "void" , "invert", array_trunc );
+     func->doc = "Truncates the size of an array.";
+     if( !type_engine_import_mfun( env, func ) ) goto error;
+     */
+    
     // add reset()
     func = make_new_mfun( "void", "reset", array_reset );
     func->doc = "Reset array to original state; clears the array and sets capacity to 8.";
     if( !type_engine_import_mfun( env, func ) ) goto error;
 
+    // add pushBack() // I'll test this
+    func = make_new_mfun( "void", "pushBack", array_push_back );
+    func->doc = "Remove the first item of the array";
+    if( !type_engine_import_mfun( env, func ) ) goto error;
+    
     // add popBack()
     func = make_new_mfun( "void", "popBack", array_pop_back );
     func->doc = "Remove the last item of the array";
