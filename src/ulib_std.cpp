@@ -702,7 +702,7 @@ CK_DLL_SFUN( ftos_impl )
 {
     t_CKFLOAT i = GET_CK_FLOAT(ARGS);
     Chuck_String * a = (Chuck_String *)instantiate_and_initialize_object( &t_string, NULL );
-    a->str = mtos( i );
+    a->str = ftos( i );
     RETURN->v_string = a;
 }
 
