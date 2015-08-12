@@ -660,7 +660,7 @@ static void usage()
 
     if ( !files && vm_halt && !enable_shell )
     {
-        fprintf( stderr, "[chuck]: no input files... (try --help)\n" );
+        fprintf( stderr, "[chmusick]: no input files... (try --help)\n" );
         exit( 1 );
     }
 

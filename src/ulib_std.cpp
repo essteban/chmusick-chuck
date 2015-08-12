@@ -205,14 +205,6 @@ DLL_QUERY libstd_query( Chuck_DL_Query * QUERY )
     QUERY->add_sfun( QUERY, atof_impl, "float", "atof" ); //! string to float
     QUERY->add_arg( QUERY, "string", "value" );
     
-    // add mtos
-    QUERY->add_sfun( QUERY, mtos_impl, "int", "mtos" ); //! midi note to string note
-    QUERY->add_arg( QUERY, "int", "value" );
-    
-    // add ftos
-    QUERY->add_sfun( QUERY, ftos_impl, "float", "ftos" ); // frecuency to string note
-    QUERY->add_arg( QUERY, "float", "value" );
-    
     // add itoa
     QUERY->add_sfun( QUERY, itoa_impl, "string", "itoa" ); //! int to string
     QUERY->add_arg( QUERY, "int", "i" );
@@ -656,25 +648,6 @@ CK_DLL_SFUN( system_impl )
         EM_poplog();
         RETURN->v_int = system( cmd );
     }
-}
-
-// mtos
-CK_DLL_SFUN( mtos_impl )
-{
-    t_CKINT i = GET_CK_INT(ARGS);
-    Chuck_String * a = (Chuck_String *)instantiate_and_initialize_object( &t_string, NULL );
-    a->str = itoa( i );
-    RETURN->v_string = a;
-}
-
-// ftos
-CK_DLL_SFUN( ftos_impl )
-{
-    t_CKFLOAT f = GET_NEXT_FLOAT(ARGS);
-    t_CKINT p = GET_NEXT_INT(ARGS);
-    Chuck_String * a = (Chuck_String *)instantiate_and_initialize_object( &t_string, NULL );
-    a->str = ftoa( f, (t_CKUINT)p );
-    RETURN->v_string = a;
 }
 
 // atoi

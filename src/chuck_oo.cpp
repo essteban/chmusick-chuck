@@ -626,8 +626,6 @@ t_CKINT Chuck_Array4::set_capacity( t_CKINT capacity )
 }
 
 
-
-
 //-----------------------------------------------------------------------------
 // name: set_size()
 // desc: ...

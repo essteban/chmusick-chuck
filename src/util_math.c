@@ -71,64 +71,7 @@ double remainder( long a, long b )
 
 #endif
 
-//-----------------------------------------------------------------------------
-// name: mtos()
-// desc: midi to string note
-// author: Esteban Betancur (essteb@gmail.com)
-//-----------------------------------------------------------------------------
 
-char mtos( int i )
-{
-    char c;
-    
-    if(i % 12 == 0)
-    {
-        c = 'c';
-        return c;
-    }
-    if(i % 11 == 0)
-    {
-        c = 'b';
-        return c;
-    }
-    if(i % 9 == 0)
-    {
-        c = 'a';
-        return c;
-    }
-    if(i % 7 == 0)
-    {
-        c = 'g';
-        return c;
-    }
-    if(i % 5 == 0)
-    {
-        c = 'f';
-        return c;
-    }
-    if(i % 4 == 0)
-    {
-        c = 'e';
-        return c;
-    }
-    if(i % 2 == 0)
-    {
-        c = 'd';
-        return c;
-    }
-    else
-        return 0.0;
-}
-//-----------------------------------------------------------------------------
-// name: ftos()
-// desc: frecuency to string note
-//-----------------------------------------------------------------------------
-char ftos( double f )
-{
-    f = ftom(f);
-    f = mtos(f);
-    return f;
-}
 
 // the following 6 functions are
 // lifted from  PD source

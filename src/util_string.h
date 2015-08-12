@@ -39,6 +39,8 @@
 #include <list>
 
 
+// mtos
+std::string mtos( t_CKUINT val );
 // itoa
 std::string itoa( t_CKINT val );
 // ftoa

@@ -234,14 +234,6 @@ DLL_QUERY libmath_query( Chuck_DL_Query * QUERY )
     // QUERY->add_sfun( QUERY, rand2f_impl, "float", "rand2f" ); //! rand between min and max
     // QUERY->add_arg( QUERY, "float", "min" );
     // QUERY->add_arg( QUERY, "float", "max" );
-
-    // add mtos
-    QUERY->add_sfun( QUERY, mtos_impl, "float", "mtos" ); //! midi note to string note
-    QUERY->add_arg( QUERY, "int", "value" );
-    
-    // add ftos
-    QUERY->add_sfun( QUERY, ftos_impl, "float", "mtof" ); //! frecuency to string note
-    QUERY->add_arg( QUERY, "float", "value" );
     
     // add mtof
     //! see \example mand-o-matic.ck

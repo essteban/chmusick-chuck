@@ -44,6 +44,31 @@
 using namespace std;
 
 
+//-----------------------------------------------------------------------------
+// name: mtos()
+// desc: ...
+//-----------------------------------------------------------------------------
+
+string notes[] = {"C","C#/Db","D","D#/Eb","E","F","F#/Gb","G","G#/Ab","A","A#/Bb","B"};
+
+string mtos( t_CKUINT val )
+{
+    int pos;
+    string converted;
+    
+    if( val < 12 )
+    {
+        converted = notes[val];
+    }
+    
+    if( val >= 12 )
+    {
+        pos = val % 12;
+        converted = notes[pos];
+    }
+    return converted;
+}
+
 
 //-----------------------------------------------------------------------------
 // name: itoa()

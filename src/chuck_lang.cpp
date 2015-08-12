@@ -1247,21 +1247,14 @@ t_CKBOOL init_class_array( Chuck_Env * env, Chuck_Type * type )
     func->doc = "Clear the contents of the array.";
     if( !type_engine_import_mfun( env, func ) ) goto error;
     
-    /*
-    // add trunc()
-     func = make_new_mfun( "void" , "invert", array_trunc );
-     func->doc = "Truncates the size of an array.";
-     if( !type_engine_import_mfun( env, func ) ) goto error;
-     */
-    
     // add reset()
     func = make_new_mfun( "void", "reset", array_reset );
     func->doc = "Reset array to original state; clears the array and sets capacity to 8.";
     if( !type_engine_import_mfun( env, func ) ) goto error;
 
-    // add pushBack() // I'll test this
+    // add pushBack() //
     func = make_new_mfun( "void", "pushBack", array_push_back );
-    func->doc = "Remove the first item of the array";
+    func->doc = "Add an element at the end of the array";
     if( !type_engine_import_mfun( env, func ) ) goto error;
     
     // add popBack()
@@ -3670,7 +3663,6 @@ CK_DLL_MFUN( string_get_at )
     RETURN->v_int = s->str.length();
 }
 */
-
 
 // array.size()
 CK_DLL_MFUN( array_get_size )
