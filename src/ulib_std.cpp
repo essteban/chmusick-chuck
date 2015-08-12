@@ -687,7 +687,7 @@ CK_DLL_SFUN( atof_impl )
 // mtos
 CK_DLL_SFUN( mtos_impl )
 {
-    t_CKINT val = GET_CK_INT(ARGS);
+    t_CKUINT val = GET_CK_UINT(ARGS);
     Chuck_String * a = (Chuck_String *)instantiate_and_initialize_object( &t_string, NULL );
     a->str = mtos( val );
     RETURN->v_string = a;

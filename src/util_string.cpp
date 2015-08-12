@@ -53,8 +53,8 @@ string notes[] = {"C","C#/Db","D","D#/Eb","E","F","F#/Gb","G","G#/Ab","A","A#/Bb
 
 string mtos( t_CKUINT val )
 {
-    int pos;
-    string converted;
+    int pos = 0;
+    string converted = "";
     
     if( val < 12 )
     {
@@ -66,7 +66,7 @@ string mtos( t_CKUINT val )
         pos = val % 12;
         converted = notes[pos];
     }
-    return converted;
+    return string(converted);
 }
 
 
