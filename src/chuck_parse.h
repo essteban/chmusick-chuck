@@ -56,7 +56,7 @@ typedef yy_buffer_state * YY_BUFFER_STATE;
 extern "C" YY_BUFFER_STATE yy_scan_string( const char * );
 extern "C" void yy_delete_buffer( YY_BUFFER_STATE );
 
-// open file with .ck append as appropriate
+// open file with .cmk append as appropriate
 FILE * open_cat_ck( c_str filename );
 // parse file
 t_CKBOOL chuck_parse( c_constr fname, FILE * fd = NULL, c_constr code = NULL );

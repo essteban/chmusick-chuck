@@ -55,9 +55,9 @@ FILE * open_cat_ck( c_str fname )
 {
     FILE * fd = NULL;
     if( !(fd = fopen( fname, "rb" )) )
-        if( !strstr( fname, ".ck" ) && !strstr( fname, ".CK" ) )
+        if( !strstr( fname, ".cmk" ) && !strstr( fname, ".CMK" ) )
         {
-            strcat( fname, ".ck" );
+            strcat( fname, ".cmk" );
             fd = fopen( fname, "rb" );
         }
     return fd;

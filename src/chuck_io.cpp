@@ -1725,14 +1725,14 @@ t_CKBOOL init_class_serialio( Chuck_Env * env )
     type_engine_import_svar(env, "int", "ASCII", TRUE, (t_CKUINT) &Chuck_IO_File::TYPE_ASCII, "ASCII mode");
 
     // add examples
-    if( !type_engine_import_add_ex( env, "serial/byte.ck" ) ) goto error;
-    if( !type_engine_import_add_ex( env, "serial/bytes.ck" ) ) goto error;
-    if( !type_engine_import_add_ex( env, "serial/ints-bin.ck" ) ) goto error;
-    if( !type_engine_import_add_ex( env, "serial/ints.ck" ) ) goto error;
-    if( !type_engine_import_add_ex( env, "serial/lines.ck" ) ) goto error;
-    if( !type_engine_import_add_ex( env, "serial/list.ck" ) ) goto error;
-    if( !type_engine_import_add_ex( env, "serial/write-bytes.ck" ) ) goto error;
-    if( !type_engine_import_add_ex( env, "serial/write.ck" ) ) goto error;
+    if( !type_engine_import_add_ex( env, "serial/byte.cmk" ) ) goto error;
+    if( !type_engine_import_add_ex( env, "serial/bytes.cmk" ) ) goto error;
+    if( !type_engine_import_add_ex( env, "serial/ints-bin.cmk" ) ) goto error;
+    if( !type_engine_import_add_ex( env, "serial/ints.cmk" ) ) goto error;
+    if( !type_engine_import_add_ex( env, "serial/lines.cmk" ) ) goto error;
+    if( !type_engine_import_add_ex( env, "serial/list.cmk" ) ) goto error;
+    if( !type_engine_import_add_ex( env, "serial/write-bytes.cmk" ) ) goto error;
+    if( !type_engine_import_add_ex( env, "serial/write.cmk" ) ) goto error;
     
     // end the class import
     type_engine_import_class_end( env );

@@ -731,7 +731,7 @@ t_CKBOOL load_external_modules_in_directory( Chuck_Compiler * compiler,
                     load_external_module_at_path(compiler, de->d_name, 
                                                  absolute_path.c_str());
                 }
-                else if( extension_matches(de->d_name, ".ck") )
+                else if( extension_matches(de->d_name, ".cmk") )
                 {
                     std::string absolute_path = std::string(directory) + "/" + de->d_name;
                     compiler->m_cklibs_to_preload.push_back(absolute_path);
@@ -804,7 +804,7 @@ t_CKBOOL load_external_modules( Chuck_Compiler * compiler,
                                      dl_path.c_str());
     }
     
-    /* now recurse through search paths and load any DLs or .ck files found */
+    /* now recurse through search paths and load any DLs or .cmk files found */
     
     for(std::list<std::string>::iterator i_sp = chugin_search_paths.begin();
         i_sp != chugin_search_paths.end(); i_sp++)

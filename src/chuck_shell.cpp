@@ -2159,8 +2159,8 @@ t_CKINT Chuck_Shell::Command_CodeWrite::execute( vector < string > & argv,
             }
             else
             {
-                // append .ck to the code name to get the file name
-                filename = argv[0] + ".ck";
+                // append .cmk to the code name to get the file name
+                filename = argv[0] + ".cmk";
             }
 
             // open the file
