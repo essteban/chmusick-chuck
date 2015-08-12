@@ -183,8 +183,6 @@
 		098060A50AA159A200915136 /* func_overload_multi.ck */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = func_overload_multi.ck; path = examples/func/func_overload_multi.ck; sourceTree = SOURCE_ROOT; };
 		098060A60AA159A200915136 /* func_recursion.ck */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = func_recursion.ck; path = examples/func/func_recursion.ck; sourceTree = SOURCE_ROOT; };
 		098060A70AA159A200915136 /* func_void.ck */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = func_void.ck; path = examples/func/func_void.ck; sourceTree = SOURCE_ROOT; };
-		098060A80AA159A200915136 /* hanoi.ck */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = hanoi.ck; path = examples/hanoi.ck; sourceTree = SOURCE_ROOT; };
-		098060A90AA159A200915136 /* hanoi++.ck */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = "hanoi++.ck"; path = "examples/hanoi++.ck"; sourceTree = SOURCE_ROOT; };
 		098060AB0AA159A200915136 /* joy-fm.ck */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = "joy-fm.ck"; path = "examples/hid/joy-fm.ck"; sourceTree = SOURCE_ROOT; };
 		098060AC0AA159A200915136 /* joy-noise.ck */ = {isa = PBXFileReference; fileEncoding = 30; languageSpecificationIdentifier = c; lastKnownFileType = text; name = "joy-noise.ck"; path = "examples/hid/joy-noise.ck"; sourceTree = SOURCE_ROOT; };
 		098060AD0AA159A200915136 /* joy-shake.ck */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = "joy-shake.ck"; path = "examples/hid/joy-shake.ck"; sourceTree = SOURCE_ROOT; };
@@ -449,8 +447,6 @@
 				0980608E0AA159A200915136 /* data */,
 				098060950AA159A200915136 /* event */,
 				098060A00AA159A200915136 /* func */,
-				098060A80AA159A200915136 /* hanoi.ck */,
-				098060A90AA159A200915136 /* hanoi++.ck */,
 				098060AA0AA159A200915136 /* hid */,
 				098060B20AA159A200915136 /* midi */,
 				098060B70AA159A200915136 /* multi */,

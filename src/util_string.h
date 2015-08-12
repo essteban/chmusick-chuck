@@ -41,6 +41,8 @@
 
 // mtos
 std::string mtos( t_CKUINT val );
+// ftos
+std::string ftos( t_CKFLOAT val );
 // itoa
 std::string itoa( t_CKINT val );
 // ftoa

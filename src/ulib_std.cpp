@@ -209,6 +209,10 @@ DLL_QUERY libstd_query( Chuck_DL_Query * QUERY )
     QUERY->add_sfun( QUERY, mtos_impl, "string", "mtos" ); //! midi number to string note
     QUERY->add_arg( QUERY, "int", "i" );
     
+    // add ftos
+    QUERY->add_sfun( QUERY, ftos_impl, "string", "ftos" ); //! frecuecy to string note
+    QUERY->add_arg( QUERY, "float", "i" );
+    
     // add itoa
     QUERY->add_sfun( QUERY, itoa_impl, "string", "itoa" ); //! int to string
     QUERY->add_arg( QUERY, "int", "i" );
@@ -688,6 +692,15 @@ CK_DLL_SFUN( atof_impl )
 CK_DLL_SFUN( mtos_impl )
 {
     t_CKUINT i = GET_CK_UINT(ARGS);
+    Chuck_String * a = (Chuck_String *)instantiate_and_initialize_object( &t_string, NULL );
+    a->str = mtos( i );
+    RETURN->v_string = a;
+}
+
+// ftos
+CK_DLL_SFUN( ftos_impl )
+{
+    t_CKFLOAT i = GET_CK_FLOAT(ARGS);
     Chuck_String * a = (Chuck_String *)instantiate_and_initialize_object( &t_string, NULL );
     a->str = mtos( i );
     RETURN->v_string = a;

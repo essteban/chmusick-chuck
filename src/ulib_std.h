@@ -50,6 +50,7 @@ CK_DLL_SFUN( system_impl );
 CK_DLL_SFUN( atoi_impl );
 CK_DLL_SFUN( atof_impl );
 CK_DLL_SFUN( mtos_impl );
+CK_DLL_SFUN( ftos_impl );
 CK_DLL_SFUN( itoa_impl );
 CK_DLL_SFUN( ftoa_impl );
 CK_DLL_SFUN( ftoi_impl );

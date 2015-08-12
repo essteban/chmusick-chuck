@@ -3169,6 +3169,7 @@ int MultiTouchDevice_callback(MTDeviceRef device, Finger *data, int nFingers, do
 }
 
 
+
 void MultiTouchDevice_init()
 {
     if(!MTDManager::checkedAvailability)

@@ -31,6 +31,7 @@
 // date: Summer 2005
 //-----------------------------------------------------------------------------
 #include "util_string.h"
+#include <math.h>
 
 #ifdef __PLATFORM_WIN32__
 #include <Windows.h>
@@ -69,6 +70,18 @@ string mtos( t_CKUINT val )
     sprintf(buffer, "%li", val);
     
     return string(notes[pos]);
+}
+
+//-----------------------------------------------------------------------------
+// name: ftos()
+// desc: ...
+//-----------------------------------------------------------------------------
+
+string ftos( t_CKFLOAT val )
+{
+    int note = (val > 0 ? (log(val/440.0) / 0.69314718055994528623) * 12.0 + 69 : -1500);;
+    
+    return string(mtos(note));
 }
 
 
