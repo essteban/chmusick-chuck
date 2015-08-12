@@ -54,19 +54,21 @@ string notes[] = {"C","C#/Db","D","D#/Eb","E","F","F#/Gb","G","G#/Ab","A","A#/Bb
 string mtos( t_CKUINT val )
 {
     int pos = 0;
-    string converted = "";
     
     if( val < 12 )
     {
-        converted = notes[val];
+        pos = val;
     }
     
     if( val >= 12 )
     {
         pos = val % 12;
-        converted = notes[pos];
     }
-    return string(converted);
+    
+    char buffer[8];
+    sprintf(buffer, "%li", val);
+    
+    return string(notes[pos]);
 }
 
 
