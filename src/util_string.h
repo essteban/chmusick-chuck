@@ -38,7 +38,6 @@
 #include <vector>
 #include <list>
 
-
 // mtos
 std::string mtos( t_CKUINT val );
 // ftos
