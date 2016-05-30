@@ -183,6 +183,7 @@ long htol( c_str str )
 "--"                    { adjust(); return MINUSMINUS; }
 "#("                    { adjust(); return POUNDPAREN; }
 "%("                    { adjust(); return PERCENTPAREN; }
+"@("                    { adjust(); return ATPAREN; }
 
 ","                     { adjust(); return COMMA; }
 ":"                     { adjust(); return COLON; }
@@ -276,6 +277,7 @@ typeof                  { adjust(); return TYPEOF; }
 ([0-9]+"."[0-9]*)|([0-9]*"."[0-9]+)   { adjust(); yylval.fval=atof(yytext); return FLOAT; }
 [A-Za-z_][A-Za-z0-9_]*  { adjust(); yylval.sval=alloc_str(yytext); return ID; }
 \"(\\.|[^\\"])*\"       { adjust(); yylval.sval=alloc_str(strip_lit(yytext)); return STRING_LIT; }
+`(\\.|[^\\`])*`         { adjust(); yylval.sval=alloc_str(strip_lit(yytext)); return STRING_LIT; }
 '(\\.|[^\\'])'          { adjust(); yylval.sval=alloc_str(strip_lit(yytext)); return CHAR_LIT; }
 
 .                       { adjust(); EM_error( EM_tokPos, "illegal token" ); }
